@@ -10,9 +10,7 @@ Base on [robfig/cron](https://github.com/robfig/cron)
 * Every minute(s)
 * Every hour(s)
 * Every day(s)
-* Every half, quarter even fixed range minutes, hours and days
-
-# Getting Started
+* Every half, quarter even fixed range minutes, hours and day
 
 ## Installation
 
