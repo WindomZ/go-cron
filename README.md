@@ -22,3 +22,7 @@ go get -u github.com/WindomZ/go-cron
 * Support for more types
 * More practical functions
 * More Test and Benchmark
+
+## LICENSE
+
+MIT(http://opensource.org/licenses/mit-license.php)
