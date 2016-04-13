@@ -29,9 +29,9 @@ func EveryFixedDay(start int, interval int, cmd func()) error {
 }
 
 func EveryHalfDay(cmd func()) error {
-	return EveryFixedDay(0, 30, cmd)
+	return EveryFixedDay(0, 12, cmd)
 }
 
 func EveryQuarterDay(cmd func()) error {
-	return EveryFixedDay(0, 15, cmd)
+	return EveryFixedDay(0, 6, cmd)
 }
