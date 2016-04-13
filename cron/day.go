@@ -7,7 +7,7 @@ import (
 
 func EveryDays(d int, cmd func()) error {
 	if d <= 0 {
-		return ERR_INVALID_DAY
+		return ErrDay
 	}
 	getCron().Schedule(Every(time.Hour*24*time.Duration(d)), FuncJob(cmd))
 	return nil

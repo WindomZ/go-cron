@@ -7,7 +7,7 @@ import (
 
 func EverySeconds(s int, cmd func()) error {
 	if s <= 0 {
-		return ERR_INVALID_SECOND
+		return ErrSecond
 	}
 	getCron().Schedule(Every(time.Second*time.Duration(s)), FuncJob(cmd))
 	return nil
