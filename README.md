@@ -6,10 +6,11 @@ Base on [robfig/cron](https://github.com/robfig/cron)
 
 ## Overview
 
-* Every Seconds
-* Every Minutes
-* Every Hours
-* Every Days
+* Every second(s)
+* Every minute(s)
+* Every hour(s)
+* Every day(s)
+* Every half, quarter even fixed range minutes, hours and days
 
 # Getting Started
 
