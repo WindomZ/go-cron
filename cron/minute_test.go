@@ -8,11 +8,20 @@ import (
 
 func TestEveryFixedMinute(t *testing.T) {
 	defer StopCron()
-	EveryFixedMinute(0, 5, func() { fmt.Printf("%v: EveryFixedMinute\n", time.Now().Format(time.RFC3339)) })
-	EveryHalfMinute(func() { fmt.Printf("%v: EveryHalfMinute\n", time.Now().Format(time.RFC3339)) })
-	EveryQuarterMinute(func() { fmt.Printf("%v: EveryQuarterMinute\n", time.Now().Format(time.RFC3339)) })
+	if err := EveryFixedMinute(0, 5, func() { fmt.Printf("%v: 0/5\n", time.Now().Format(time.RFC3339)) }); err != nil {
+		t.Fatal(err)
+	}
+	if err := EveryFixedMinute(0, 65, func() { fmt.Printf("%v: 0/65\n", time.Now().Format(time.RFC3339)) }); err != nil {
+		t.Fatal(err)
+	}
+	if err := EveryHalfMinute(func() { fmt.Printf("%v: 0/30\n", time.Now().Format(time.RFC3339)) }); err != nil {
+		t.Fatal(err)
+	}
+	if err := EveryQuarterMinute(func() { fmt.Printf("%v: 0/15\n", time.Now().Format(time.RFC3339)) }); err != nil {
+		t.Fatal(err)
+	}
 	select {
-	case <-time.After(time.Minute + time.Microsecond*10):
+	case <-time.After(time.Minute*2 + time.Microsecond*10):
 		t.Log("Finish")
 	}
 }

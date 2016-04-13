@@ -21,10 +21,8 @@ func EveryHour(cmd func()) error {
 func EveryFixedHour(start int, interval int, cmd func()) error {
 	if err := ValidMinute(start); err != nil {
 		return ErrValueStart
-	} else if err := ValidMinute(interval); err != nil {
+	} else if interval <= 0 {
 		return ErrValueInterval
-	} else if err := ValidMinute(start + interval); err != nil {
-		return err
 	}
 	return getCron().AddFunc(fmt.Sprintf("* %v/%v * * * *", start, interval), FuncJob(cmd))
 }
