@@ -1,8 +1,6 @@
 package cron
 
-import (
-	"errors"
-)
+import "errors"
 
 var (
 	ERR_INVALID_SECOND = errors.New("Invalid second")
