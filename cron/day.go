@@ -25,7 +25,7 @@ func EveryFixedDay(start int, interval int, cmd func()) error {
 	} else if interval <= 0 {
 		return ErrValueInterval
 	}
-	return getCron().AddFunc(fmt.Sprintf("* * %v/%v * * *", start, interval), FuncJob(cmd))
+	return getCron().AddFunc(fmt.Sprintf("0 0 %v/%v * * *", start, interval), FuncJob(cmd))
 }
 
 func EveryHalfDay(cmd func()) error {
