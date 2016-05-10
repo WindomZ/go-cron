@@ -2,7 +2,7 @@ package cron
 
 import (
 	"fmt"
-	. "github.com/robfig/cron"
+	. "github.com/WindomZ/go-cron"
 	"time"
 )
 

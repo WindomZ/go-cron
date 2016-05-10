@@ -1,7 +1,7 @@
 package cron
 
 import (
-	. "github.com/robfig/cron"
+	. "github.com/WindomZ/go-cron"
 	"sync"
 )
 
@@ -12,7 +12,7 @@ var (
 )
 
 func init() {
-	_cron = New()
+	_cron = NewCron()
 	_mutex = &sync.Mutex{}
 	_running = false
 }

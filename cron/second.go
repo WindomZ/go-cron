@@ -1,7 +1,7 @@
 package cron
 
 import (
-	. "github.com/robfig/cron"
+	. "github.com/WindomZ/go-cron"
 	"time"
 )
 
