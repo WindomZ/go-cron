@@ -7,30 +7,28 @@ import (
 
 var (
 	_cron    *Cron
-	_mutex   *sync.Mutex
-	_running bool
+	_mutex   *sync.Mutex = new(sync.Mutex)
+	_running bool        = false
 )
 
 func init() {
 	_cron = NewCron()
-	_mutex = &sync.Mutex{}
-	_running = false
 }
 
 func StartCron() {
 	_mutex.Lock()
-	defer _mutex.Unlock()
 	if !_running {
 		_cron.Start()
 	}
 	_running = true
+	_mutex.Unlock()
 }
 
 func StopCron() {
 	_mutex.Lock()
-	defer _mutex.Unlock()
 	_cron.Stop()
 	_running = false
+	_mutex.Unlock()
 }
 
 func getCron() *Cron {
