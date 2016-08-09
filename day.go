@@ -14,7 +14,7 @@ func (c *Cron) EveryDays(d int, cmd func()) error {
 }
 
 func (c *Cron) EveryDay(cmd func()) error {
-	c.AddFunc("0 0 0 * * *", FuncJob(cmd))
+	c.AddFunc("0 0 0 * * *", cmd)
 	return nil
 }
 
@@ -24,7 +24,7 @@ func (c *Cron) EveryFixedDay(start int, interval int, cmd func()) error {
 	} else if interval <= 0 {
 		return ErrValueInterval
 	}
-	return c.AddFunc(fmt.Sprintf("0 0 %v/%v * * *", start, interval), FuncJob(cmd))
+	return c.AddFunc(fmt.Sprintf("0 0 %v/%v * * *", start, interval), cmd)
 }
 
 func (c *Cron) EveryHalfDay(cmd func()) error {

@@ -24,7 +24,7 @@ func EveryFixedHour(start int, interval int, cmd func()) error {
 	} else if interval <= 0 {
 		return ErrValueInterval
 	}
-	return getCron().AddFunc(fmt.Sprintf("0 %v/%v * * * *", start, interval), FuncJob(cmd))
+	return getCron().AddFunc(fmt.Sprintf("0 %v/%v * * * *", start, interval), cmd)
 }
 
 func EveryHalfHour(cmd func()) error {

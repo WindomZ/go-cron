@@ -23,7 +23,7 @@ func (c *Cron) EveryFixedMinute(start int, interval int, cmd func()) error {
 	} else if interval <= 0 {
 		return ErrValueInterval
 	}
-	return c.AddFunc(fmt.Sprintf("%v/%v * * * * *", start, interval), FuncJob(cmd))
+	return c.AddFunc(fmt.Sprintf("%v/%v * * * * *", start, interval), cmd)
 }
 
 func (c *Cron) EveryHalfMinute(cmd func()) error {

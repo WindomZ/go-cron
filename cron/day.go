@@ -15,7 +15,7 @@ func EveryDays(d int, cmd func()) error {
 }
 
 func EveryDay(cmd func()) error {
-	getCron().AddFunc("0 0 0 * * *", FuncJob(cmd))
+	getCron().AddFunc("0 0 0 * * *", cmd)
 	return nil
 }
 
@@ -25,7 +25,7 @@ func EveryFixedDay(start int, interval int, cmd func()) error {
 	} else if interval <= 0 {
 		return ErrValueInterval
 	}
-	return getCron().AddFunc(fmt.Sprintf("0 0 %v/%v * * *", start, interval), FuncJob(cmd))
+	return getCron().AddFunc(fmt.Sprintf("0 0 %v/%v * * *", start, interval), cmd)
 }
 
 func EveryHalfDay(cmd func()) error {
