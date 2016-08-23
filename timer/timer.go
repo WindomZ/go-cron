@@ -18,10 +18,10 @@ func NewTimer() *Timer {
 }
 
 func (tm *Timer) addTimer(tag string, sec int64, f func()) string {
-	if sec <= 0 {
-		f()
+	if f == nil {
 		return tag
-	} else if f == nil {
+	} else if sec <= 0 {
+		f()
 		return tag
 	}
 	tm.mutex.Lock()
